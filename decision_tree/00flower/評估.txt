@@ -1,0 +1,15 @@
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.model_selection import cross_val_score
+
+# 混淆矩陣
+print("混淆矩陣：")
+print(confusion_matrix(y_test, y_pred))
+
+# 詳細報告（Precision, Recall, F1）
+print("\n分類報告：")
+print(classification_report(y_test, y_pred, target_names=iris.target_names))
+
+# 交叉驗證（5-fold）
+scores = cross_val_score(model, X, y, cv=5)
+print("\n交叉驗證準確率：", scores)
+print("平均準確率：", scores.mean())
